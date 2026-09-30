@@ -1,0 +1,2529 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PICOLAB | OFFICIAL STORE</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://i.ibb.co.com">
+    <link rel="preconnect" href="https://res.cloudinary.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: #FFFFFF;
+            color: #111111;
+            overflow-x: hidden;
+            padding-top: 135px;
+        }
+
+        /* TIPOGRAFI WEBSITE AWAL PICOLAB */
+        h1, h2, .product-title, .hero-left-title, .section-title, .texture-title, .cta-title {
+            font-size: 36px !important;
+            font-weight: 700 !important;
+            line-height: 1.25 !important;
+            letter-spacing: -0.5px !important;
+            color: #111111 !important;
+            text-transform: uppercase !important;
+        }
+
+        p, .product-desc, .statement-left-box p, .section-desc, .ingredient-desc, .texture-desc, .cta-subtitle {
+            font-size: 13px !important;
+            font-weight: 400 !important;
+            line-height: 1.7 !important;
+            color: #444444 !important;
+            letter-spacing: 0.5px !important;
+            text-transform: uppercase !important;
+        }
+
+        .product-tag, .hero-left-tag, .section-tag, .texture-badge, .bpom-badge-tag {
+            font-size: 13px !important;
+            font-weight: 500 !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase !important;
+        }
+
+        h3, h4, .ingredient-title, .bpom-qr-title {
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            line-height: 1.35 !important;
+            letter-spacing: 0.5px !important;
+            color: #111111 !important;
+            text-transform: uppercase !important;
+        }
+
+        /* RUNNING TEXT BAR ATAS (FIXED) */
+        .marquee-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 38px;
+            background-color: #111111;
+            color: #ffffff;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+
+        .marquee-track {
+            display: flex;
+            width: max-content;
+            animation: moveLeftToRight 48s linear infinite !important;
+            will-change: transform;
+        }
+
+        .marquee-text {
+            font-family: 'Poppins', sans-serif;
+            font-weight: 400 !important;
+            text-transform: uppercase;
+            font-size: 11px !important;
+            letter-spacing: 2.5px;
+            padding-right: 30px;
+            flex-shrink: 0;
+            display: inline-block;
+        }
+
+        .marquee-dot {
+            display: inline-block;
+            margin: 0 18px;
+            font-size: 10px;
+            vertical-align: middle;
+            opacity: 0.85;
+        }
+
+        @keyframes moveLeftToRight {
+            0% { transform: translateX(-50%); }
+            100% { transform: translateX(0%); }
+        }
+
+        /* STICKY GLOBAL HEADER */
+        .global-site-header {
+            position: fixed;
+            top: 38px;
+            left: 0;
+            width: 100vw;
+            height: 96px;
+            background-color: rgba(238, 243, 248, 0.92);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 999;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .header-brand-group {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .header-logo-link {
+            display: inline-block;
+            line-height: 0;
+            cursor: pointer;
+        }
+
+        .header-logo-img {
+            height: 33px;
+            width: auto;
+            display: inline-block;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+        }
+
+        .brand-divider {
+            width: 2px;
+            height: 28px;
+            background-color: #cccccc;
+        }
+
+        .brand-tagline-text {
+            font-size: 12px;
+            font-weight: 700;
+            letter-spacing: 2.5px;
+            color: #555555;
+            text-transform: uppercase;
+        }
+
+        /* TOP NAVIGATION */
+        .top-nav {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .top-nav a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 44px;
+            padding: 0 22px;
+            background-color: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 11px;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 14px rgba(0,0,0,0.1);
+            cursor: pointer;
+        }
+
+        .top-nav a:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+        }
+
+        /* SLIDER BERANDA */
+        .slider-section {
+            width: 100vw;
+            height: calc(100vh - 135px);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .slider-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: row;
+            overflow-x: auto;
+            overflow-y: hidden;
+            scroll-snap-type: x mandatory;
+            scroll-behavior: smooth;
+            -webkit-overflow-scrolling: touch;
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+
+        .slider-container::-webkit-scrollbar {
+            display: none;
+        }
+
+        .slide {
+            min-width: 100vw;
+            height: calc(100vh - 135px);
+            scroll-snap-align: start;
+            flex-shrink: 0;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 50px 50px 0 50px !important;
+            overflow: hidden;
+            content-visibility: auto;
+        }
+
+        #slide-1 { background-color: #E2ECF5; }
+        #slide-2 { background-color: #EFECE6; }
+        #slide-3 { background-color: #EAE6E1; }
+        #slide-4 { background-color: #E3EDE4; }
+
+        .slide .product-info {
+            width: 38%;
+            max-width: 480px;
+            z-index: 10;
+            position: relative;
+            padding-right: 0;
+            text-transform: uppercase;
+            margin-left: 5cm !important; 
+        }
+
+        .product-tag {
+            color: #666;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .product-title {
+            margin-bottom: 18px;
+        }
+
+        .product-desc {
+            margin-bottom: 30px;
+        }
+
+        .btn-buy {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            height: 50px;
+            padding: 0 36px;
+            background-color: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 2px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+        }
+
+        .btn-buy:hover {
+            background-color: #333333;
+            transform: translateY(-2px);
+        }
+
+        .slide .visual-wrapper {
+            width: 55%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            z-index: 20;
+            margin-right: 20px;
+        }
+
+        .product-visual {
+            width: 100%;
+            height: 55vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            border-radius: 0;
+            overflow: hidden;
+            background-color: transparent;
+        }
+
+        .product-visual video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            display: block;
+            outline: none;
+            border: none;
+            mix-blend-mode: multiply;
+        }
+
+        .product-visual::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        #slide-1 .product-visual::after { background: radial-gradient(ellipse 70% 65% at 50% 50%, transparent 30%, #E2ECF5 70%); }
+        #slide-2 .product-visual::after { background: radial-gradient(ellipse 70% 65% at 50% 50%, transparent 30%, #EFECE6 70%); }
+        #slide-3 .product-visual::after { background: radial-gradient(ellipse 70% 65% at 50% 50%, transparent 30%, #EAE6E1 70%); }
+        #slide-4 .product-visual::after { background: radial-gradient(ellipse 70% 65% at 50% 50%, transparent 30%, #E3EDE4 70%); }
+
+        .nav-controls {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 16px;
+            margin-top: 15px;
+            z-index: 30;
+        }
+
+        .nav-btn {
+            width: 44px;
+            height: 44px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 0, 0, 0.15);
+            background-color: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            color: #111;
+            font-size: 15px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+        }
+
+        .nav-btn:hover {
+            background-color: #ffffff;
+            border-color: #111;
+            transform: scale(1.05);
+        }
+
+        .dots-container {
+            display: flex;
+            gap: 8px;
+            margin: 0 6px;
+        }
+
+        .dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background-color: rgba(0, 0, 0, 0.25);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #111;
+            width: 20px;
+            border-radius: 10px;
+        }
+
+        /* DETAIL PRODUK SHARED STYLES */
+        .apple-detail-view {
+            background-color: #FFFFFF;
+            color: #1d1d1f;
+            position: relative;
+            z-index: 200;
+            width: 100vw;
+            content-visibility: auto;
+            contain-intrinsic-size: 1000px;
+        }
+
+        .apple-subnav {
+            position: sticky;
+            top: 134px;
+            left: 0;
+            width: 100%;
+            height: 54px;
+            background: rgba(255, 255, 255, 0.88);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            z-index: 800;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 50px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .subnav-brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+            color: #1d1d1f;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .subnav-links {
+            display: flex;
+            align-items: center;
+            gap: 24px;
+        }
+
+        .subnav-links a {
+            color: #515154;
+            text-decoration: none;
+            font-size: 11px;
+            letter-spacing: 1px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: color 0.3s;
+        }
+
+        .subnav-links a:hover {
+            color: #0071e3;
+        }
+
+        .subnav-cta {
+            background: #111111 !important;
+            color: #ffffff !important;
+            padding: 8px 18px;
+            border-radius: 980px;
+            font-size: 11px !important;
+            font-weight: 600;
+            text-transform: uppercase;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+        }
+
+        /* CONTAINER HERO SPLIT */
+        .hero-split-section {
+            max-width: 1320px;
+            margin: 0 auto;
+            padding: 40px 50px 70px 50px;
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 50px;
+        }
+
+        .hero-left-content {
+            flex: 1.1;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            text-align: left;
+        }
+
+        .product-subtitle-name {
+            font-size: 18px !important;
+            font-weight: 700 !important;
+            letter-spacing: 0.5px !important;
+            color: #111111 !important;
+            text-transform: uppercase !important;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-left-title {
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .statement-left-box {
+            width: 100%;
+            background: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 20px;
+            padding: 24px 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 2;
+        }
+
+        .statement-left-box p {
+            margin-bottom: 12px;
+        }
+
+        .statement-left-box p:last-child {
+            margin-bottom: 0;
+        }
+
+        .statement-left-box .highlight {
+            color: #0071e3;
+            font-weight: 700;
+        }
+
+        .journal-footnote {
+            font-size: 10px !important;
+            color: #666668 !important;
+            line-height: 1.5 !important;
+            margin-bottom: 20px;
+            text-transform: none !important;
+            letter-spacing: 0px !important;
+        }
+
+        .disclaimer-note {
+            font-size: 11px !important;
+            color: #86868b;
+            margin-top: 0px;
+            font-style: italic;
+        }
+
+        .melasma-showcase-card {
+            width: 100%;
+            max-width: 480px;
+            margin-top: 25px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            background: #FBFBFD;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+        }
+
+        .melasma-showcase-card img {
+            width: 100%;
+            height: auto;
+            display: block;
+            mix-blend-mode: multiply;
+        }
+
+        .hero-right-visual {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: flex-start;
+        }
+
+        .hero-model-wrap {
+            width: 100%;
+            max-width: 580px;
+            border-radius: 28px;
+            overflow: hidden;
+            background: transparent;
+        }
+
+        .hero-model-wrap img {
+            width: 100%;
+            height: auto;
+            display: block;
+            mix-blend-mode: multiply;
+            filter: contrast(105%) brightness(102%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .hero-model-wrap:hover img {
+            transform: scale(1.02);
+        }
+
+        /* SECTION INGREDIENTS */
+        .apple-section {
+            padding: 90px 40px 40px 40px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 60px auto;
+        }
+
+        .section-tag {
+            color: #86868b;
+            margin-bottom: 12px;
+            display: block;
+        }
+
+        .section-title {
+            margin-bottom: 18px;
+        }
+
+        .ingredients-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .ingredients-grid-2 {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .ingredients-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .ingredient-card {
+            background: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 24px;
+            padding: 40px 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s;
+        }
+
+        .ingredient-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.06);
+            border-color: rgba(0, 113, 227, 0.2);
+        }
+
+        .ingredient-img-box {
+            width: 100%;
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 25px;
+            background: transparent;
+        }
+
+        .ingredient-img-box img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            filter: contrast(105%);
+        }
+
+        .ingredient-title {
+            margin-bottom: 10px;
+        }
+
+        /* QR CODE BPOM CARD DENGAN KOTAK MELAYANG DI SISI KIRI & KANAN */
+        .bpom-section-wrapper {
+            max-width: 1200px;
+            margin: 55px auto 55px auto;
+            padding: 0 40px;
+            display: flex;
+            justify-content: center;
+        }
+
+        .bpom-qr-card-large {
+            display: inline-flex;
+            align-items: center;
+            gap: 24px;
+            background: #FFFFFF;
+            border: 2px solid rgba(0, 0, 0, 0.1);
+            border-radius: 22px;
+            padding: 16px 36px 16px 28px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+            position: relative;
+            margin: 0 50px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .bpom-qr-card-large:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .bpom-qr-img-large {
+            width: 95px;
+            height: 95px;
+            object-fit: contain;
+            display: block;
+            border-radius: 10px;
+            mix-blend-mode: multiply;
+        }
+
+        .bpom-qr-info-large {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .bpom-badge-tag-large {
+            color: #0071e3;
+            margin-bottom: 3px;
+            font-size: 12px !important;
+            font-weight: 500 !important;
+            letter-spacing: 2px !important;
+            text-transform: uppercase;
+        }
+
+        .bpom-qr-title-large {
+            margin-bottom: 3px;
+            font-size: 16px !important;
+            font-weight: 700 !important;
+            line-height: 1.35 !important;
+            letter-spacing: 0.5px !important;
+            color: #111111 !important;
+            text-transform: uppercase;
+        }
+
+        .bpom-qr-sub-large {
+            font-size: 11px !important;
+            color: #666668;
+            line-height: 1.5;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* ANIMASI MELAYANG AKTIF KONTINU (FLOATING EFFECT KIRI & KANAN) */
+        @keyframes floatContinuousLeft {
+            0% { transform: translateY(-50%) translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-50%) translateY(-12px) rotate(-2deg); }
+            100% { transform: translateY(-50%) translateY(0px) rotate(0deg); }
+        }
+
+        @keyframes floatContinuousRight {
+            0% { transform: translateY(-50%) translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-50%) translateY(12px) rotate(2deg); }
+            100% { transform: translateY(-50%) translateY(0px) rotate(0deg); }
+        }
+
+        .floating-badge-1 {
+            position: absolute;
+            top: 50%;
+            left: -52px;
+            width: 84px;  
+            height: 84px; 
+            background: #ffffff;
+            border: 2px solid rgba(0,0,0,0.12);
+            border-radius: 18px; /* Bentuk kotak melengkung halus */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            z-index: 10;
+            animation: floatContinuousLeft 3.2s ease-in-out infinite;
+        }
+
+        .floating-badge-1 img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        .floating-badge-2 {
+            position: absolute;
+            top: 50%;
+            right: -52px;
+            width: 84px;  
+            height: 84px; 
+            background: #ffffff;
+            border: 2px solid rgba(0,0,0,0.12);
+            border-radius: 18px; /* Bentuk kotak melengkung halus */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            z-index: 10;
+            animation: floatContinuousRight 3.8s ease-in-out infinite;
+        }
+
+        .floating-badge-2 img {
+            width: 58px;
+            height: 58px;
+            object-fit: contain;
+        }
+
+        /* TEXTURE SHOWCASE */
+        .texture-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+            background: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 32px;
+            padding: 50px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .texture-info {
+            padding-right: 20px;
+        }
+
+        .texture-badge {
+            display: inline-block;
+            background: rgba(0, 113, 227, 0.1);
+            color: #0071e3;
+            padding: 6px 16px;
+            border-radius: 20px;
+            margin-bottom: 20px;
+        }
+
+        .texture-title {
+            margin-bottom: 20px;
+        }
+
+        .texture-desc {
+            margin-bottom: 25px;
+        }
+
+        .texture-img-wrap {
+            width: 100%;
+            height: 420px;
+            border-radius: 24px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: transparent;
+        }
+
+        .texture-img-wrap img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            mix-blend-mode: multiply;
+            filter: contrast(108%);
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .texture-img-wrap:hover img {
+            transform: scale(1.04);
+        }
+
+        /* CALL TO ACTION CLOSING */
+        .cta-section {
+            text-align: center;
+            padding: 120px 20px;
+            background: #FFFFFF;
+            border-top: 1px solid rgba(0, 0, 0, 0.05);
+        }
+
+        .cta-title {
+            margin-bottom: 18px;
+        }
+
+        .cta-subtitle {
+            max-width: 600px;
+            margin: 0 auto 35px auto;
+        }
+
+        .btn-apple {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: #111111;
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            letter-spacing: 2px;
+            padding: 15px 40px;
+            border-radius: 50px;
+            transition: all 0.3s;
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+            text-transform: uppercase;
+        }
+
+        .btn-apple:hover {
+            background: #333333;
+            transform: translateY(-2px);
+        }
+
+        /* ================================================= */
+        /* HALAMAN TENTANG KAMI (ABOUT US) STYLES            */
+        /* ================================================= */
+        .about-page-wrapper {
+            display: none; 
+            width: 100vw;
+            background-color: #FFFFFF;
+            position: relative;
+            z-index: 300;
+            padding-top: 20px;
+            content-visibility: auto;
+        }
+
+        .about-section {
+            background-color: #FFFFFF;
+            padding: 40px 50px 120px 50px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .about-header {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 70px auto;
+        }
+
+        .about-header h2 {
+            font-size: 40px !important;
+            margin-bottom: 15px;
+        }
+
+        .about-row {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 60px;
+            margin-bottom: 90px;
+        }
+
+        .about-row.reverse {
+            flex-direction: row-reverse;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-text p {
+            font-size: 15px !important;
+            line-height: 1.8 !important;
+            color: #333333 !important;
+        }
+
+        .about-img-box {
+            flex: 1;
+            width: 100%;
+            max-width: 500px;
+            aspect-ratio: 1 / 1 !important;
+            border-radius: 28px;
+            overflow: hidden;
+            background: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.04);
+        }
+
+        .about-img-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover !important;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .about-img-box:hover img {
+            transform: scale(1.03);
+        }
+
+        .about-grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+            margin-top: 50px;
+        }
+
+        .about-grid-item {
+            aspect-ratio: 1 / 1 !important;
+            border-radius: 24px;
+            overflow: hidden;
+            background: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            transition: transform 0.4s ease;
+        }
+
+        .about-grid-item:hover {
+            transform: translateY(-6px);
+        }
+
+        .about-grid-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover !important;
+            display: block;
+        }
+
+        .about-closing {
+            text-align: center;
+            max-width: 800px;
+            margin: 90px auto 0 auto;
+            background: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.06);
+            border-radius: 32px;
+            padding: 60px 40px;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.03);
+        }
+
+        .about-closing h3 {
+            font-size: 24px !important;
+            margin-bottom: 20px;
+            color: #111111 !important;
+        }
+
+        .about-closing p {
+            font-size: 14px !important;
+            line-height: 1.8 !important;
+            color: #444444 !important;
+            text-transform: none !important;
+        }
+
+        /* ================================================= */
+        /* HALAMAN JURNAL ILMIAH (LAYOUT KIRI KANAN)           */
+        /* ================================================= */
+        .journal-page-wrapper {
+            display: none;
+            width: 100vw;
+            min-height: 85vh;
+            background-color: #FFFFFF;
+            position: relative;
+            z-index: 300;
+            padding: 60px 60px 100px 60px;
+            max-width: 1320px;
+            margin: 0 auto;
+            content-visibility: auto;
+        }
+
+        .journal-layout {
+            display: flex;
+            gap: 50px;
+            align-items: flex-start;
+        }
+
+        .journal-sidebar {
+            width: 320px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-shrink: 0;
+            position: sticky;
+            top: 210px;
+        }
+
+        .journal-btn {
+            width: 100%;
+            text-align: left;
+            padding: 16px 24px;
+            background-color: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 16px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 12px !important;
+            font-weight: 600 !important;
+            letter-spacing: 1.5px;
+            color: #111111;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.02);
+        }
+
+        .journal-btn:hover, .journal-btn.active {
+            background-color: #111111;
+            color: #ffffff;
+            border-color: #111111;
+            transform: translateX(4px);
+        }
+
+        .journal-content-area {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .journal-pane {
+            display: none;
+        }
+
+        .journal-pane.active {
+            display: block;
+            animation: fadeIn 0.4s ease forwards;
+        }
+
+        /* KOTAK PEMBATAS ARTIKEL SENDIRI-SENDIRI */
+        .journal-article-box {
+            background-color: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 28px;
+            padding: 50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+        }
+
+        .journal-article-box h2 {
+            font-size: 26px !important;
+            margin-bottom: 20px;
+            color: #111111 !important;
+            text-transform: none !important;
+            line-height: 1.35 !important;
+        }
+
+        .journal-article-box h3 {
+            font-size: 16px !important;
+            margin-top: 25px;
+            margin-bottom: 10px;
+            color: #111111 !important;
+            text-transform: none !important;
+        }
+
+        .journal-article-box p {
+            font-size: 13.5px !important;
+            line-height: 1.9 !important;
+            color: #444444 !important;
+            text-transform: none !important;
+            margin-bottom: 16px;
+        }
+
+        .journal-article-box ul {
+            margin: 15px 0 20px 20px;
+            color: #444444;
+            font-size: 13.5px;
+            line-height: 1.8;
+        }
+
+        .journal-article-box li {
+            margin-bottom: 8px;
+        }
+
+        .journal-ref {
+            font-size: 11px !important;
+            color: #666668 !important;
+            border-top: 1px solid rgba(0,0,0,0.08);
+            padding-top: 15px;
+            margin-top: 30px;
+            text-transform: none !important;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ================================================= */
+        /* HALAMAN RESELLER                                  */
+        /* ================================================= */
+        .reseller-page-wrapper {
+            display: none;
+            width: 100vw;
+            min-height: 80vh;
+            background-color: #FFFFFF;
+            position: relative;
+            z-index: 300;
+            padding: 60px 50px 100px 50px;
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+            content-visibility: auto;
+        }
+
+        .reseller-page-wrapper h2 {
+            font-size: 36px !important;
+            margin-bottom: 15px;
+        }
+
+        .reseller-page-wrapper p {
+            font-size: 14px !important;
+            line-height: 1.9 !important;
+            text-transform: none !important;
+            color: #444444 !important;
+            margin-bottom: 20px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .reseller-banner-box {
+            width: 100%;
+            margin-top: 30px;
+            background: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            border-radius: 28px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.03);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .reseller-banner-box img {
+            width: 100%;
+            max-width: 900px;
+            height: auto;
+            display: block;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+            transition: transform 0.5s ease;
+        }
+
+        .reseller-banner-box img:hover {
+            transform: scale(1.015);
+        }
+
+        /* ================================================= */
+        /* FOOTER STYLES (BACKGROUND PUTIH & BAWAH HITAM)    */
+        /* ================================================= */
+        .site-footer {
+            background-color: #FFFFFF;
+            color: #111111;
+            padding: 80px 50px 0px 50px;
+            position: relative;
+            z-index: 400;
+            content-visibility: auto;
+            border-top: 1px solid rgba(0, 0, 0, 0.08);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 40px;
+            flex-wrap: wrap;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+            padding-bottom: 50px;
+        }
+
+        .footer-col {
+            flex: 1;
+            min-width: 280px;
+        }
+
+        .footer-col h4 {
+            font-size: 14px !important;
+            font-weight: 700 !important;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            color: #111111 !important;
+        }
+
+        .footer-col p {
+            font-size: 12px !important;
+            color: #444444 !important;
+            line-height: 1.8 !important;
+            text-transform: none !important;
+            letter-spacing: 0.5px;
+            margin-bottom: 10px;
+        }
+
+        .footer-col p strong {
+            color: #111111;
+        }
+
+        .footer-qr-box {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        /* Ukuran QR Code */
+        .footer-qr-img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            background: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 4px;
+            border-radius: 8px;
+        }
+
+        /* Footer Social Media Logos Styling */
+        .footer-social-links {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .footer-social-links a img {
+            width: 40px;
+            height: 40px;
+            object-fit: contain;
+            background: #FBFBFD;
+            border: 1px solid rgba(0, 0, 0, 0.08);
+            padding: 4px;
+            border-radius: 8px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .footer-social-links a img:hover {
+            transform: scale(1.05);
+            border-color: #111111;
+        }
+
+        /* Bagian Paling Bawah Tetap Hitam */
+        .footer-bottom {
+            width: 100vw;
+            margin-left: -50px;
+            margin-right: -50px;
+            background-color: #000000;
+            padding: 25px 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .footer-bottom p {
+            font-size: 11px !important;
+            color: #888888 !important;
+            text-transform: none !important;
+            letter-spacing: 1px;
+            margin: 0;
+        }
+
+        /* RESPONSIVE MOBILE */
+        @media (max-width: 900px) {
+            body {
+                padding-top: 160px;
+            }
+
+            .global-site-header {
+                height: auto;
+                flex-direction: column;
+                padding: 12px 20px;
+                gap: 10px;
+            }
+
+            .header-brand-group {
+                gap: 12px;
+            }
+
+            .header-logo-img {
+                height: 28px;
+            }
+
+            .brand-divider {
+                height: 20px;
+            }
+
+            .brand-tagline-text {
+                font-size: 9.5px;
+                letter-spacing: 1.5px;
+            }
+
+            h1, h2, .product-title, .hero-left-title, .section-title, .texture-title, .cta-title {
+                font-size: 24px !important;
+            }
+
+            p, .product-desc, .statement-left-box p, .section-desc, .ingredient-desc, .texture-desc, .cta-subtitle {
+                font-size: 11.5px !important;
+            }
+
+            .hero-split-section, .about-row, .about-row.reverse, .footer-content, .journal-layout {
+                flex-direction: column;
+                padding: 10px 20px 50px 20px;
+                gap: 35px;
+            }
+
+            .journal-sidebar {
+                width: 100%;
+                position: static;
+            }
+
+            .journal-article-box {
+                padding: 25px;
+            }
+
+            .hero-left-content {
+                width: 100%;
+                text-align: left;
+            }
+
+            .product-subtitle-name {
+                font-size: 15px !important;
+            }
+
+            .statement-left-box {
+                padding: 20px;
+                margin-bottom: 16px;
+            }
+
+            .melasma-showcase-card {
+                max-width: 100%;
+            }
+
+            .ingredients-grid-2, .ingredients-grid-3, .about-grid-3 {
+                grid-template-columns: 1fr;
+            }
+
+            .bpom-qr-card-large {
+                width: 100%;
+                justify-content: flex-start;
+                gap: 16px;
+                padding: 14px 18px;
+                margin: 0 10px;
+            }
+
+            .bpom-qr-img-large {
+                width: 85px;
+                height: 85px;
+            }
+
+            .floating-badge-1 {
+                left: -20px;
+                width: 54px;
+                height: 54px;
+            }
+            .floating-badge-1 img { width: 36px; height: 36px; }
+
+            .floating-badge-2 {
+                right: -20px;
+                width: 54px;
+                height: 54px;
+            }
+            .floating-badge-2 img { width: 36px; height: 36px; }
+
+            .hero-right-visual {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .hero-model-wrap {
+                max-width: 380px;
+            }
+
+            .texture-container {
+                grid-template-columns: 1fr;
+                padding: 25px;
+            }
+
+            .texture-img-wrap {
+                height: 280px;
+            }
+
+            .about-section {
+                padding: 60px 20px;
+            }
+
+            .about-closing {
+                padding: 30px 20px;
+            }
+
+            .site-footer {
+                padding: 50px 20px 0px 20px;
+            }
+
+            .footer-social-links a img,
+            .footer-qr-img {
+                width: 40px;
+                height: 40px;
+            }
+
+            .footer-bottom {
+                width: 100vw;
+                margin-left: -20px;
+                margin-right: -20px;
+            }
+
+            .top-nav {
+                gap: 6px;
+                width: 100%;
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .top-nav a {
+                padding: 0 12px;
+                height: 34px;
+                font-size: 9px;
+                letter-spacing: 1px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- KOTAK HITAM RUNNING TEXT -->
+    <div class="marquee-container">
+        <div class="marquee-track">
+            <span class="marquee-text">
+                BELANJA DI SINI DAPATKAN DISKON SPESIAL WEBSITE 5% 
+                <span class="marquee-dot">●</span> 
+                GRATIS ONGKIR JABODETABEK 
+                <span class="marquee-dot">●</span> 
+                DAPATKAN SAMPEL GRATIS KHUSUS PEMBELIAN DI WEBSITE
+                <span class="marquee-dot">●</span>
+            </span>
+            <span class="marquee-text">
+                BELANJA DI SINI DAPATKAN DISKON SPESIAL WEBSITE 5% 
+                <span class="marquee-dot">●</span> 
+                GRATIS ONGKIR JABODETABEK 
+                <span class="marquee-dot">●</span> 
+                DAPATKAN SAMPEL GRATIS KHUSUS PEMBELIAN DI WEBSITE
+                <span class="marquee-dot">●</span>
+            </span>
+        </div>
+    </div>
+
+    <!-- HEADER GLOBAL PERMANEN -->
+    <header class="global-site-header">
+        <div class="header-brand-group">
+            <a href="#" onclick="showMainProducts(); return false;" class="header-logo-link">
+                <img src="https://i.ibb.co.com/C33rymQb/logo-pico.png" alt="PICOLAB" class="header-logo-img" loading="lazy" decoding="async">
+            </a>
+            <div class="brand-divider"></div>
+            <span class="brand-tagline-text">SKINCARE BASED ON JOURNAL</span>
+        </div>
+        <nav class="top-nav">
+            <a onclick="showAboutPage()">TENTANG KAMI</a>
+            <a onclick="showMainProducts()">PRODUK</a>
+            <a onclick="showJournalPage()">JURNAL</a>
+            <a onclick="showResellerPage()">RESELLER</a>
+        </nav>
+    </header>
+
+    <!-- ============================================== -->
+    <!-- HALAMAN TENTANG KAMI                           -->
+    <!-- ============================================== -->
+    <div class="about-page-wrapper" id="aboutPage">
+        <section class="about-section">
+            <div class="about-header">
+                <span class="section-tag">TENTANG PICOLAB</span>
+                <h2>SKINCARE BASED ON JOURNAL.</h2>
+                <p>Filosofi di balik setiap tetes formulasi perawatan kulit berstandar ilmiah dan ekonomis.</p>
+            </div>
+
+            <div class="about-row">
+                <div class="about-text">
+                    <p>
+                        Di era modern ini, kita dituntut untuk jauh lebih bijak dalam menentukan setiap langkah—termasuk bagaimana kita berinvestasi pada kesehatan kulit.<br><br>
+                        PICOLAB memahami bahwa perawatan kulit yang baik tidak boleh berhenti pada sekadar janji atau estetika sesaat. Perawatan terbaik adalah sebuah komitmen ilmiah yang memberikan bukti nyata, terukur, dan transparan, tanpa harus menguras kantong Anda.
+                    </p>
+                </div>
+                <!-- GAMBAR BARU DENGAN LOADING LAZY -->
+                <div class="about-img-box">
+                    <img src="https://i.ibb.co.com/4nPc7hKZ/history.jpg" alt="history" loading="lazy" decoding="async" fetchpriority="low">
+                </div>
+            </div>
+
+            <div class="about-row reverse">
+                <div class="about-text">
+                    <p>
+                        Maka, kami hadir sebagai solusi dengan memberikan ingredients terbaik dengan harga yang ekonomis. Setiap produk kami tidak lahir dari sekadar mengikuti tren, melainkan berakar pada riset mendalam dan jurnal ilmiah terpercaya.
+                    </p>
+                </div>
+                <div class="about-img-box">
+                    <img src="https://i.ibb.co.com/hxNbMFDV/foto-produk-4-jejeran.jpg" alt="Koleksi Produk Lengkap PICOLAB" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+            <div style="text-align: center; max-width: 850px; margin: 0 auto 60px auto;">
+                <p style="font-size: 15px !important; line-height: 1.8 !important;">
+                    Kami memastikan setiap kandungan bahan baku terbaik memiliki fungsi yang jelas dan hasil pasti yang terukur untuk kesehatan jangka panjang kulit Anda.
+                </p>
+            </div>
+
+            <div class="about-grid-3">
+                <div class="about-grid-item">
+                    <img src="https://i.ibb.co.com/zMgx0dj/sabun-jalan-di-mesin.jpg" alt="Proses Produksi Sabun PICOLAB" loading="lazy" decoding="async">
+                </div>
+                <div class="about-grid-item">
+                    <img src="https://i.ibb.co.com/RT7Rjxy7/orang-lagi-racik.jpg" alt="Peracikan Formula Ilmiah PICOLAB" loading="lazy" decoding="async">
+                </div>
+                <div class="about-grid-item">
+                    <img src="https://i.ibb.co.com/sJmYx0th/biru-jalan-di-mesin.jpg" alt="Quality Control PICOLAB" loading="lazy" decoding="async">
+                </div>
+            </div>
+
+            <div class="about-closing">
+                <h3>KOMITMEN KAMI UNTUK KULIT SEHAT ANDA</h3>
+                <p>
+                    Perawatan kulit terbaik bukanlah sebuah kemewahan yang sulit dijangkau, melainkan hak setiap kulit untuk sehat, terawat, dan bernutrisi secara ilmiah. Bersama PICOLAB, wujudkan investasi kulit masa depan yang cerdas, rasakan buktinya secara nyata, dan mulailah perjalanan kulit sehatmu hari ini.
+                </p>
+            </div>
+        </section>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- HALAMAN JURNAL ILMIAH                          -->
+    <!-- ============================================== -->
+    <div class="journal-page-wrapper" id="journalPage">
+        <div style="margin-bottom: 40px;">
+            <span class="section-tag">ARCHIVE & RESEARCH</span>
+            <h2>Jurnal & Studi Ilmiah PICOLAB</h2>
+            <p style="text-transform: none !important; color: #666668; margin-top: 8px;">Pilih bahan aktif di sebelah kiri untuk melihat ulasan uji klinis dan literatur jurnal ilmiah terpercaya.</p>
+        </div>
+
+        <div class="journal-layout">
+            <div class="journal-sidebar">
+                <button class="journal-btn active" onclick="switchJournal('lactobacillus', this)">Lactobacillus Collagen</button>
+                <button class="journal-btn" onclick="switchJournal('niacinamide', this)">Niacinamide</button>
+                <button class="journal-btn" onclick="switchJournal('tranexamic', this)">Tranexamic Acid</button>
+                <button class="journal-btn" onclick="switchJournal('hyaluronate', this)">Hyaluronate Acid</button>
+                <button class="journal-btn" onclick="switchJournal('glycolic', this)">Glycolic Acid</button>
+                <button class="journal-btn" onclick="switchJournal('arbutin', this)">Alpha Arbutin</button>
+            </div>
+
+            <div class="journal-content-area">
+                <div id="pane-lactobacillus" class="journal-pane active">
+                    <div class="journal-article-box">
+                        <h2>Potensi Probiotik dalam Dunia Skincare: Dari Penguat Skin Barrier hingga Mencegah Penuaan Dini</h2>
+                        <p>Penggunaan probiotik kini tidak hanya terbatas pada produk makanan atau minuman kesehatan usus, melainkan telah berkembang pesat sebagai bahan aktif berkhasiat (dermal bioactives) dalam industri kosmetik dan perawatan kulit. Berdasarkan penelitian yang dipublikasikan pada Majalah Farmasetika, formulasi berbasis probiotik terbukti memberikan berbagai efek terapeutik dan perlindungan bagi kesehatan kulit.</p>
+                        
+                        <h3>1. Peran Mikrobioma Kulit bagi Kesehatan Skin Barrier</h3>
+                        <p>Kulit manusia merupakan ekosistem kompleks yang dihuni oleh jutaan mikroorganisme yang saling berinteraksi. Keseimbangan mikroorganisme kulit (microbiome) sangat dipengaruhi oleh faktor internal (seperti usia dan hormon) serta faktor lingkungan (seperti suhu, sinar UV, dan gaya hidup). Ketidakseimbangan mikroorganisme (dysbacteriosis) dapat memicu peradangan kulit serta memperburuk kondisi seperti jerawat, dermatitis atopik, dan psoriasis.</p>
+                        <p>Probiotik bekerja dengan menyeimbangkan populasi bakteri baik dan jahat pada permukaan kulit, mempercepat proses peremajaan alami, serta memperkuat pertahanan skin barrier dari pengaruh buruk lingkungan.</p>
+
+                        <h3>2. Jenis Probiotik Utama dalam Formulasi Skincare</h3>
+                        <p>Dari penelusuran berbagai literatur, terdapat tiga strain mikroorganisme probiotik yang paling dominan diformulasikan ke dalam produk perawatan kulit:</p>
+                        <ul>
+                            <li><strong>Lactobacillus</strong> (misalnya <em>L. acidophilus</em>, <em>L. plantarum</em>, <em>L. casei</em>, <em>L. rhamnosus</em>): Berfungsi sebagai agen antibakteri, antijerawat, eksfoliator alami, dan pengontrol pH.</li>
+                            <li><strong>Bifidobacterium</strong> (misalnya <em>B. longum</em>): Sangat efektif untuk menurunkan sensitivitas kulit dan menenangkan kulit iritasi.</li>
+                            <li><strong>Streptococcus</strong> (misalnya <em>S. thermophilus</em>): Mampu memicu produksi hyaluronic acid alami untuk meningkatkan hidrasi kulit.</li>
+                        </ul>
+
+                        <h3>3. Manfaat Bioaktif Metabolit Probiotik untuk Kulit</h3>
+                        <p>Dalam industri kosmetik modern, produsen umumnya memanfaatkan lysate atau metabolit terlarut dari probiotik (postbiotics) untuk menjaga kestabilan sediaan tanpa membutuhkan bakteri hidup. Metabolit utama dari probiotik ini memberikan manfaat spesifik:</p>
+                        <ul>
+                            <li><strong>Asam Laktat (Lactic Acid):</strong> Bertindak sebagai Alpha Hydroxy Acid (AHA) alami yang lembut untuk melepas sel kulit mati (micro-peeling), melembapkan, serta memicu produksi seramida pada sel keratinosit.</li>
+                            <li><strong>Hyaluronic Acid (HA):</strong> Membantu mengikat air di lapisan dermis dan epidermis, menyamarkan garis halus/kerutan, serta meningkatkan elastisitas kulit.</li>
+                            <li><strong>Sphingomyelinase (SMase):</strong> Enzim yang menstimulasi pembentukan seramida alami untuk memperbaiki fungsi pertahanan kulit (skin barrier).</li>
+                            <li><strong>Lipoteichoic Acid (LTA):</strong> Merangsang pelepasan peptida antimikroba alami tubuh (human β-defensins) yang membantu percepatan penyembuhan luka dan peradangan kulit.</li>
+                            <li><strong>Asam Asetat (Acetic Acid) & Diacetyl:</strong> Memiliki efek antibakteri dan antimikroba yang kuat terhadap patogen penyebab infeksi kulit dan jerawat.</li>
+                        </ul>
+
+                        <h3>4. Aplikasi dalam Produk Kosmetik</h3>
+                        <p>Bahan aktif turunan probiotik kini telah luas diaplikasikan dalam beragam sediaan kosmetik, antara lain krim pelembab, serum anti-aging, pembersih wajah, masker biocellulose, hingga sampo antiketombe. Penggunaan rutin sediaan topikal berprobiotik membantu merawat kulit sensitif agar pulih lebih cepat dari kerusakan, mengurangi tanda-tanda penuaan dini, serta menjadikan kulit tampak lebih sehat dan bercahaya.</p>
+
+                        <div class="journal-ref">
+                            <strong>Referensi:</strong><br>
+                            ¹ Pratiwi, E. D., & Susanti. (2021). Manfaat Probiotik dalam Perawatan Kulit: Review. <em>Majalah Farmasetika</em>, 6(4), 359–374. https://doi.org/10.24198/mfarmasetika.v6i4.35690
+                        </div>
+                    </div>
+
+                    <div class="journal-article-box" style="margin-top: 40px;">
+                        <h2>Rahasia Kulit Awet Muda & Cerah Alami: Peran Probiotik dalam Menjaga Kolagen serta Mencegah Hiperpigmentasi</h2>
+                        <p>Paparan sinar ultraviolet (UV) harian dapat memicu stres oksidatif yang menjadi penyebab utama penuaan dini pada kulit atau photoaging. Dampaknya tidak main-main: sekitar 80% penuaan kulit ditandai dengan munculnya kerutan, kulit kering, dan hiperpigmentasi atau flek hitam akibat produksi melanin berlebih.</p>
+                        <p>Guna mengatasi masalah ini, industri kecantikan kini mulai beralih ke solusi biologis yang lebih aman dan multifungsi, salah satunya melalui pemanfaatan probiotik. Tinjauan ilmiah dari Fakultas Kedokteran Universitas Udayana merekap bagaimana mikroorganisme baik ini bekerja dalam meregulasi kolagen dan menekan pembentukan melanin.</p>
+
+                        <h3>1. Memperlambat Penghancuran Kolagen & Mencegah Kerutan</h3>
+                        <p>Kolagen Tipe I mencakup sekitar 80% dari total kolagen pada lapisan dermis yang menjaga ketahanan serta kekenyalan kulit. Namun, radiasi UV menginduksi pembentukan Reactive Oxygen Species (ROS) yang mengaktifkan enzim Matrix Metalloproteinase (MMP). Enzim MMP inilah yang merusak dan memecah jaringan kolagen sehingga memicu garis halus dan kerutan.</p>
+                        <p>Probiotik (seperti strain <em>Lactobacillus acidophilus</em> dan <em>Lactobacillus plantarum</em>) terbukti efektif:</p>
+                        <ul>
+                            <li><strong>Menghambat Enzim Pemecah Kolagen:</strong> Menekan aktivitas MMP-1 dan MMP-9 sehingga kerusakan matriks kolagen akibat sinar matahari dapat dicegah.</li>
+                            <li><strong>Meningkatkan Produksi Kolagen Baru:</strong> Menginduksi sintesis pro-kolagen alfa tipe 1 pada sel fibroblas kulit.</li>
+                            <li><strong>Menjaga Kelembapan Alami:</strong> Mendorong ekspresi gen enzim hyaluronan synthase (HAS) untuk merangsang produksi Asam Hialuronat (Hyaluronic Acid), yang menjaga air tetap terikat di dalam lapisan kulit.</li>
+                        </ul>
+
+                        <h3>2. Menghambat Melanogenesis (Pencegah Flek Hitam & Pemutih Alami)</h3>
+                        <p>Proses pembentukan pigmen kulit (melanogenesis) dikendalikan oleh enzim utama bernama tirosinase serta faktor transkripsi MITF [Microphthalmia-associated Transcription Factor]. Paparan sinar UV memicu enzim ini bekerja ekstra hingga menghasilkan melanin berlebih yang memicu melasma dan flek hitam.</p>
+                        <p>Penggunaan probiotik, baik dari strain Lactobacillus, Bifidobacterium, maupun Pediococcus, memberikan efek mencerahkan kulit melalui mekanisme:</p>
+                        <ul>
+                            <li><strong>Penghambatan Aktivitas Tirosinase:</strong> Metabolit seperti asam laktat dan phenyllactic acid yang dihasilkan probiotik bekerja menekan aktivitas enzim tirosinase secara langsung.</li>
+                            <li><strong>Menurunkan Ekspresi MITF:</strong> Mengurangi sinyal pemicu pembentukan melanin pada tingkat genetik dan seluler.</li>
+                            <li><strong>Efek Antioksidan:</strong> Menetralisir radikal bebas ROS yang dipicu sinar UV sebelum sempat merangsang sel melanosit.</li>
+                        </ul>
+
+                        <h3>3. Memperbaiki Skin Barrier & Menurunkan Sensitivitas Kulit</h3>
+                        <p>Selain pengaruhnya pada kolagen dan melanin, konsumsi maupun aplikasi topikal probiotik (seperti <em>Lactobacillus paracasei</em> dan <em>Bifidobacterium breve</em>) terbukti secara klinis dapat mengurangi Transepidermal Water Loss (TEWL) atau penguapan air dari kulit. Hal ini memperkuat fungsi benteng pertahanan kulit (skin barrier), meredakan peradangan, serta menurunkan sensitivitas pada kulit yang mudah reaktif/iritasi.</p>
+
+                        <h3>Kesimpulan</h3>
+                        <p>Probiotik menghadirkan pendekatan terpadu yang alami untuk merawat kesehatan kulit. Tidak hanya sekadar merawat dari luar, bioaktif dari probiotik mampu melindungi struktur kolagen dari photoaging sekaligus mengontrol pigmentasi langsung dari sumbernya.</p>
+
+                        <div class="journal-ref">
+                            <strong>Referensi:</strong><br>
+                            ² Badri, A. A., Dewi, N. N. A., & Wahyuniari, I. A. I. (2024). Peran Probiotik dalam Regulasi Kolagen dan Melanin: Systematic Review. <em>Jurnal Kesehatan Andalas</em>, 13(3), 111–118. http://jurnal.fk.unand.ac.id
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pane-niacinamide" class="journal-pane">
+                    <div class="journal-article-box">
+                        <h2>Mengapa Niacinamide Jadi Bahan Aktif Favorit dalam Dunia Skincare?</h2>
+                        <p>Niacinamide, atau vitamin B3 bentuk amida, kini menjadi salah satu bahan aktif yang paling populer dalam industri kosmetik karena sifatnya yang relatif stabil, aman, dan memiliki efektivitas tinggi untuk berbagai jenis kulit. Sebagai bahan yang larut dalam air, niacinamide mampu menembus lapisan kulit untuk bekerja langsung memperbaiki fungsi benteng pertahanan (skin barrier). Penggunaannya dalam konsentrasi topikal yang aman (0,0001%–4%) terbukti efektif tanpa memicu iritasi berat maupun risiko fotosensitivitas.</p>
+                        
+                        <p>Keunggulan utama niacinamide terletak pada kemampuannya mencerahkan wajah dan mencegah penuaan dini (anti-aging). Berbeda dari agen pencerah lain yang menghambat enzim tirosinase secara langsung, niacinamide bekerja dengan memblokir transfer melanosom (pigmen) dari sel melanosit ke sel keratinosit. Selain itu, bahan ini merangsang produksi kolagen dan seramida alami kulit, yang berperan penting dalam mengurangi garis halus, meningkatkan elastisitas, serta memudarkan flek hitam dan noda kekuningan akibat stres oksidatif.</p>
+                        
+                        <p>Tidak hanya untuk peremajaan, niacinamide juga menjadi solusi ampuh untuk kulit berjerawat dan sensitif. Pada konsentrasi sekitar 2%, niacinamide mampu menekan produksi minyak (sebum) berlebih di wajah serta memberikan efek antiinflamasi dan bakteriostatik terhadap Propionibacterium acnes. Bagi penderita dermatitis atopik, sifatnya yang meningkatkan biosintesis seramida dan menahan penguapan air (Transepidermal Water Loss) menjadikan kulit tetap terhidrasi dengan optimal.</p>
+
+                        <div class="journal-ref">
+                            <strong>Referensi:</strong><br>
+                            ¹ Aspadiah, V., Suryani, Zubaydah, W. O. S., Indalifiany, A., & Muliadi, R. (2023). Review: Perawatan Kulit dengan Niacinamide Sebagai Bahan Aktif. <em>Lansau: Jurnal Ilmu Kefarmasian</em>, 1(1), 69–76. https://doi.org/10.33772/lansau.v1i1.8
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pane-tranexamic" class="journal-pane">
+                    <div class="journal-article-box">
+                        <h2>Mekanisme Kerja dan Efektivitas Tranexamic Acid (TXA) sebagai Solusi Klinis Unggulan untuk Mengatasi Melasma dan Hiperpigmentasi</h2>
+                        <p>Melasma adalah gangguan hiperpigmentasi kulit kronis yang ditunjukkan dengan bercak kecoklatan hingga kehitaman, terutama pada area wajah yang terpapar sinar matahari. Selama bertahun-tahun, hidrokuinon menjadi standar emas (*gold standard*) terapi topikal. Namun, kekhawatiran akan efek samping jangka panjang seperti okronosis eksogen dan iritasi membuat para peneliti beralih ke agen alternatif yang lebih aman, salah satunya adalah <strong>Asam Traneksamat (Tranexamic Acid / TXA)</strong>.</p>
+                        <p>Secara farmakologis, TXA adalah sintetik analog dari asam amino lisin yang bekerja melalui penghambatan kompetitif aktivasi plasminogen. Dalam patogenesis melasma, paparan radiasi ultraviolet (UV) merangsang produksi plasmin di dalam keratinosit. Plasmin ini kemudian memicu pelepasan asam arakidonat dan meningkatkan prostaglandin, yang secara langsung menstimulasi aktivitas melanogenesis (pembentukan pigmen melanin) pada sel melanosit serta memicu vaskularisasi dermal. Dengan menghambat sistem plasminogen-plasmin, TXA mampu memutus rantai radang dan pembentukan pigmen berlebih langsung dari akarnya.</p>
+
+                        <h3>1. Efektivitas Klinis Dibandingkan Standar Emas</h3>
+                        <p>Berbagai uji klinis dan <em>systematic review</em> dermatologi membuktikan bahwa penggunaan topikal maupun sistemik Tranexamic Acid memberikan efektivitas terapi yang setara—bahkan dalam beberapa kasus lebih unggul—dibandingkan hidrokuinon.</p>
+                        <ul>
+                            <li><strong>Reduksi Keparahan Melasma:</strong> Penggunaan TXA secara konsisten menurunkan skor <em>Melasma Area and Severity Index</em> (MASI) secara signifikan dalam kurun waktu 8 hingga 16 minggu.</li>
+                            <li><strong>Risiko Efek Samping Minimal:</strong> TXA memiliki profil keamanan yang jauh lebih tinggi, tidak menyebabkan sitotoksisitas pada melanosit, serta memiliki <strong>tingkat kekambuhan (*relapse rate*) yang jauh lebih rendah</strong> setelah penghentian terapi dibandingkan hidrokuinon.</li>
+                        </ul>
+
+                        <h3>2. Sinergi TXA dengan Barrier Repair dan Pencerah Lain</h3>
+                        <p>Dalam formulasi modern, TXA sering dikombinasikan dengan bahan aktif pendukung seperti <em>Niacinamide</em> dan <em>Active Collagen</em> untuk memberikan hasil komprehensif:</p>
+                        <ul>
+                            <li><strong>Anti-Inflamasi Vaskular:</strong> Mengurangi kemerahan dan pembuluh darah mikro (*erythema and telangiectasia*) yang sering menyertai lesi melasma kronis.</li>
+                            <li><strong>Pencerahan Menyeluruh:</strong> Menghambat transfer melanosom ke permukaan sel epidermis sehingga warna kulit tampak lebih merata, cerah transparan, dan bebas kusam.</li>
+                        </ul>
+
+                        <h3>Kesimpulan</h3>
+                        <p>Tranexamic Acid (TXA) telah merevolusi pendekatan penanganan hiperpigmentasi dan melasma dalam dunia dermatologi modern. Melalui mekanisme penghambatan jalur vaskular-pigmen yang aman, TXA menjadi pilihan rasional berstandar ilmiah bagi perawatan kulit jangka panjang yang efektif tanpa efek samping berbahaya.</p>
+
+                        <div class="journal-ref">
+                            <strong>Referensi:</strong><br>
+                            ¹ Gunawan, Michelle & Dr. dr. Sinta Murlistyarini, Sp.KK(K), FINSDV, FAADV, dkk. (2022). <em>Perbandingan Efektivitas Terapi Topikal Antara Hidrokuinon Dan Asam Traneksamat Pada Pasien Melasma: Systematic Review</em>. Universitas Brawijaya.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pane-hyaluronate" class="journal-pane">
+                    <div class="journal-article-box">
+                        <h2>Keajaiban Hyaluronic Acid Topikal: Rahasia Kulit Lembut, Kencang, dan Awet Muda</h2>
+                        <p>Seiring bertambahnya usia, terutama memasuki usia 25 tahun ke atas, kandungan molekul kelembapan alami di kulit kita mulai menurun secara bertahap. Ditambah dengan paparan faktor lingkungan atau exposome—seperti radiasi sinar UV, polusi udara, asap rokok, hingga stres—proses penuaan kulit dapat berlangsung lebih cepat. Akibatnya, kulit menjadi lebih kering, mengendur, serta memunculkan garis-garis halus dan kerutan.</p>
+                        <p>Salah satu bahan aktif terbaik yang terbukti secara klinis mampu melawan dampak penuaan ini adalah Hyaluronic Acid (HA). Berikut adalah berbagai kebaikan dan manfaat utama penggunaan hyaluronic acid topikal untuk perawatan kulit sehari-hari:</p>
+
+                        <h3>1. Mengikat Kelembapan Ekstra & Memperbaiki Skin Barrier</h3>
+                        <p>Hyaluronic acid adalah molekul humektan yang sangat istimewa karena sanggup menyerap dan mengikat air hingga 1.000 kali lipat dari berat volumenya sendiri. Saat diaplikasikan ke kulit, HA bekerja menjaga kadar air di lapisan epidermis dan dermis, menghaluskan tekstur kulit yang kasar, serta mengurangi penguapan air dari kulit (Transepidermal Water Loss/TEWL). Hasilnya, pertahanan benteng kulit (skin barrier) menjadi jauh lebih kuat dan kulit terasa terhidrasi sepanjang hari.</p>
+
+                        <h3>2. Kombinasi Ukuran Molekul untuk Efek Anti-Aging Maksimal</h3>
+                        <p>Formulasi skincare modern memanfaatkan kombinasi berbagai berat molekul HA untuk hasil yang optimal:</p>
+                        <ul>
+                            <li><strong>High Molecular Weight HA (Berat Molekul Tinggi):</strong> Bekerja di permukaan kulit untuk membentuk lapisan pelindung yang menahan kelembapan dan memberikan efek plumping seketika.</li>
+                            <li><strong>Low/Medium Molecular Weight HA (Berat Molekul Rendah/Sedang):</strong> Memiliki ukuran molekul lebih kecil sehingga mampu berpenetrasi lebih dalam melewati stratum corneum ke lapisan epidermis dalam. Hal ini efektif membantu mengurangi kedalaman kerutan, meningkatkan elastisitas, dan merangsang pemulihan jaringan kulit dari dalam.</li>
+                        </ul>
+
+                        <h3>3. Mempercepat Pemulihan Luka & Pasca-Tindakan Dermatologi</h3>
+                        <p>Selain sebagai pelembap, HA memiliki sifat penyembuhan alami (healing properties). Studi menunjukkan bahwa penggunaan serum atau krim ber-HA topikal sangat efektif membantu menenangkan kulit iritasi, meredakan kemerahan, serta mempercepat proses pemulihan kulit setelah menjalani tindakan estetika medis—seperti peeling kimiawi, microneedling, terapi laser, maupun injeksi botulinum toxin (BoNTA).</p>
+
+                        <h3>Kesimpulan</h3>
+                        <p>Penggunaan produk cosmeceutical berbasis hyaluronic acid merupakan langkah non-invasif yang sangat efektif untuk memulihkan hidrasi, meremajakan tekstur kulit, serta melindungi wajah dari efek buruk lingkungan. Penggunaan serum HA secara rutin adalah investasi terbaik untuk menjaga kulit tetap kenyal, kencang, dan sehat berkilau alami.</p>
+
+                        <div class="journal-ref">
+                            <strong>Referensi:</strong><br>
+                            ¹ Bravo, B., Correia, P., Gonçalves Junior, J. E., Sant'Anna, B., & Kerob, D. (2022). Benefits of topical hyaluronic acid for skin quality and signs of skin aging: From literature review to clinical evidence. <em>Dermatologic Therapy</em>, 35(12), e15903. https://doi.org/10.1111/dth.15903
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pane-glycolic" class="journal-pane">
+                    <div class="journal-article-box">
+                        <h2>Mengenal Glycolic Acid: Rahasia Eksfoliasi Efektif untuk Kulit Halus, Cerah, dan Bebas Kusam</h2>
+                        <p>Menumpuknya sel kulit mati di permukaan wajah sering kali menjadi penyebab utama tekstur kulit terasa kasar, kusam, serta munculnya masalah seperti komedo dan flek hitam. Salah satu solusi paling ampuh dan teruji secara klinis untuk meremajakan sel kulit adalah dengan pemanfaatan Glycolic Acid.</p>
+                        <p>Sebagai bagian dari kelompok Alpha Hydroxy Acid (AHA), glycolic acid memiliki keunggulan khusus dibanding jenis asam lainnya dan menjadi standar utama dalam perawatan eksfoliasi kimiawi.</p>
+
+                        <h3>1. Molekul Terkecil untuk Penetrasi Maksimal</h3>
+                        <p>Glycolic acid merupakan jenis AHA dengan ukuran molekul paling kecil. Karena ukuran molekulnya yang sangat mikro, asam ini dapat berpenetrasi lebih dalam dan cepat ke lapisan stratum corneum dibanding jenis AHA lain (seperti lactic acid atau mandelic acid).</p>
+                        <p>Glycolic acid bekerja melemahkan serta memutus ikatan antarsel kulit mati di permukaan wajah (desquamation), sehingga penumpukan sel mati dapat terangkat secara lembut dan efektif.</p>
+
+                        <h3>2. Mencerahkan Kulit & Memudarkan Hiperpigmentasi</h3>
+                        <p>Manfaat utama glycolic acid yang sangat disukai adalah kemampuannya meratakan warna kulit. Eksfoliasi rutin dengan glycolic acid mempercepat proses regenerasi sel baru, sehingga membantu:</p>
+                        <ul>
+                            <li>Memudarkan flek hitam dan noda bekas jerawat (Post-Inflammatory Hyperpigmentation / PIH).</li>
+                            <li>Mengatasi warna kulit tidak merata akibat paparan sinar matahari (photoaging).</li>
+                            <li>Menghilangkan tampilan kulit kusam agar tampak lebih glowing dan bercahaya.</li>
+                        </ul>
+
+                        <h3>3. Merangsang Kolagen & Meratakan Tekstur Kulit</h3>
+                        <p>Selain bekerja di permukaan, penggunaan glycolic acid juga memberikan efek positif pada lapisan dermis. Pemakaian secara teratur membantu merangsang produksi kolagen alami, sehingga elastisitas kulit tetap terjaga, garis-garis halus tersamarkan, dan tekstur kulit yang tadinya kasar atau beruntusan menjadi jauh lebih halus dan kencang.</p>
+
+                        <h3>Panduan Penggunaan yang Aman</h3>
+                        <p>Karena daya penetrasinya yang kuat, berikut beberapa tips agar mendapatkan hasil maksimal tanpa memicu iritasi:</p>
+                        <ul>
+                            <li><strong>Mulai dari Konsentrasi Rendah:</strong> Untuk pemula, gunakan produk dengan konsentrasi 5%–7% sebanyak 1–2 kali seminggu.</li>
+                            <li><strong>Gunakan di Malam Hari:</strong> Efek eksfoliasi dapat meningkatkan sensitivitas kulit terhadap sinar matahari.</li>
+                            <li><strong>Wajib Gunakan Sunscreen:</strong> Selalu gunakan sunscreen minimal SPF 30 pada pagi dan siang hari untuk melindungi sel kulit baru.</li>
+                        </ul>
+
+                        <h3>Kesimpulan</h3>
+                        <p>Glycolic acid adalah pilihan bahan aktif terbaik bagi siapa saja yang ingin meremajakan tekstur kulit, mengatasi hiperpigmentasi, dan mengembalikan kecerahan alami wajah secara efektif.</p>
+
+                        <div class="journal-ref">
+                            <strong>Referensi:</strong><br>
+                            ¹ Review & Clinical Evidence on Alpha Hydroxy Acids (AHA) in Dermatology & Cosmeceuticals.
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pane-arbutin" class="journal-pane">
+                    <div class="journal-article-box">
+                        <h2>Alpha Arbutin: Jawaban Efektif dan Aman untuk Kulit Cerah Bebas Flek Hitam Tanpa Risiko Iritasi</h2>
+                        <p>Mendapatkan warna kulit yang cerah dan merata merupakan dambaan banyak orang, terutama bagi mereka yang memiliki masalah hiperpigmentasi seperti melasma, flek hitam akibat paparan sinar matahari, maupun noda bekas jerawat. Selama bertahun-tahun, hydroquinone dikenal sebagai standar utama dalam mengatasi masalah pigmentasi. Namun, pemakaian hydroquinone jangka panjang berisiko tinggi memicu efek samping serius, seperti okronosis eksogen (perubahan warna kulit menjadi biru-kehitaman), iritasi berat, hingga bahaya karsinogenik.</p>
+                        <p>Sebagai solusi atas kekhawatiran tersebut, hadir Alpha Arbutin (&alpha;-arbutin) sebagai pilihan bahan pencerah kulit (skin lightening agent) modern yang terbukti jauh lebih aman dan dapat ditoleransi dengan baik oleh kulit.</p>
+
+                        <h3>Bagaimana Alpha Arbutin Bekerja?</h3>
+                        <p>Warna gelap atau pigmentasi pada kulit diproduksi oleh pigmen melanin melalui enzim utama yang disebut tirosinase. Alpha Arbutin bekerja menghambat produksi melanin secara langsung dengan cara:</p>
+                        <ul>
+                            <li><strong>Menghambat Aktivitas Enzim Tirosinase:</strong> Alpha Arbutin memiliki struktur molekul yang bertindak sebagai substrat kompetitif yang menempel pada enzim tirosinase, sehingga menghambat pembentukan melanin di dalam melanosom.</li>
+                            <li><strong>Efektivitas 10 Kali Lipat dibanding Beta Arbutin:</strong> Dibandingkan dengan Arbutin alami (&beta;-arbutin) yang diekstrak dari tumbuhan, Alpha Arbutin hasil biosintesis enzim memiliki daya hambat tirosinase 10 kali lebih kuat dan bekerja jauh lebih efisien pada sel kulit manusia tanpa merusak sel (non-cytotoxic).</li>
+                        </ul>
+
+                        <h3>Keunggulan Alpha Arbutin Dibanding Pencerah Lainnya</h3>
+                        <p>Berdasarkan berbagai pengujian dan ulasan keamanan ilmiah, Alpha Arbutin memiliki profil keamanan yang sangat baik:</p>
+                        <ul>
+                            <li><strong>Tidak Memicu Iritasi & Sensitisasi:</strong> Berbeda dari hydroquinone, Alpha Arbutin tidak menimbulkan efek merusak sel pembentuk pigmen (melanocytotoxicity) dan tidak membuat kulit menjadi hipersensitif.</li>
+                            <li><strong>Stabilitas Tinggi:</strong> Sangat stabil digunakan dalam sediaan kosmetik (terutama pada kisaran pH ideal 5,0).</li>
+                            <li><strong>Aman Menurut Komite Keamanan Konsumen (SCCS):</strong> Dinyatakan aman digunakan dalam produk perawatan wajah hingga konsentrasi 2% dan lotion tubuh hingga 0,5%.</li>
+                            <li><strong>Manfaat Multi-Fungsi:</strong> Selain mencerahkan noda hitam akibat stres lingkungan dan sinar UV, Alpha Arbutin juga membantu mengatasi kekusaman akibat glikasi serta menjaga elastisitas kulit.</li>
+                        </ul>
+
+                        <h3>Efektif Bila Dikombinasikan dengan Bahan Aktif Lain</h3>
+                        <p>Untuk hasil pencerahan kulit yang optimal, Alpha Arbutin sangat baik dan aman jika dikombinasikan dengan bahan aktif pencerah lainnya yang memiliki mekanisme kerja berbeda. Kombinasi Alpha Arbutin dengan Niacinamide, Vitamin C, Tranexamic Acid, atau Kojic Acid terbukti memberikan efek sinergis yang kuat untuk memudarkan flek hitam membandel secara lebih cepat tanpa menambah risiko iritasi.</p>
+
+                        <h3>Kesimpulan</h3>
+                        <p>Alpha Arbutin menawarkan standar baru dalam perawatan kulit kusam dan hiperpigmentasi. Dengan efektivitasnya yang tinggi dalam menekan pembentukan pigmen gelap serta profil keamanannya yang unggul, Alpha Arbutin menjadi pilihan utama pengganti pencerah keras yang jauh lebih aman untuk penggunaan jangka panjang.</p>
+
+                        <div class="journal-ref">
+                            <strong>Referensi:</strong><br>
+                            ¹ Chandorkar, N., Tambe, S., Amin, P., & Madankar, C. S. (2021). Alpha Arbutin as a Skin Lightening Agent: A Review. <em>International Journal of Pharmaceutical Research</em>, 13(2), 3502–3510. https://doi.org/10.31838/ijpr/2021.13.02.446
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- HALAMAN RESELLER                                -->
+    <!-- ============================================== -->
+    <div class="reseller-page-wrapper" id="resellerPage">
+        <span class="section-tag" style="display:block; margin-bottom:10px;">KEMITRAAN EKSKLUSIF</span>
+        <h2>Gabung Menjadi Reseller Resmi PICOLAB</h2>
+        <p>Mari berkembang bersama PT Pico Charmante Aestetik! Dapatkan kesempatan emas untuk memasarkan produk skincare berbasis jurnal ilmiah dengan dukungan materi pemasaran profesional, margin keuntungan menarik, serta bimbingan langsung.</p>
+        
+        <div class="reseller-banner-box">
+            <img src="https://res.cloudinary.com/xi0uonrz/image/upload/v1790168931/RESELLER_PROGRAM_PDF.jpg" alt="Program Reseller Resmi PICOLAB" loading="lazy" decoding="async">
+        </div>
+    </div>
+
+    <!-- ============================================== -->
+    <!-- CONTAINER UTAMA PRODUK (DEFAULT TAMPIL)        -->
+    <!-- ============================================== -->
+    <div id="mainProductsContent">
+        <div class="slider-section">
+            <div class="slider-container" id="slider">
+                
+                <!-- SLIDE 1: SKIN BARRIER -->
+                <section class="slide" id="slide-1">
+                    <div class="product-info">
+                        <span class="product-tag">PICOLAB ESSENTIALS</span>
+                        <h2 class="product-title">SKIN BARRIER MOISTURIZER</h2>
+                        <p class="product-desc">FORMULASI KHUSUS UNTUK MEMPERKUAT PERTAHANAN KULIT, MENGUNCI KELEMBAPAN MENDALAM, DAN MEMPERBAIKI TEKSTUR KULIT.</p>
+                        <a href="#product-barrier-detail" class="btn-buy">JELAJAHI PRODUK</a>
+                    </div>
+                    
+                    <div class="visual-wrapper">
+                        <div class="product-visual">
+                            <video autoplay loop muted playsinline preload="auto">
+                                <source src="https://res.cloudinary.com/xi0uonrz/video/upload/biru_muter.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="nav-controls">
+                            <button class="nav-btn prev-btn" aria-label="Slide Kiri">&#10094;</button>
+                            <div class="dots-container">
+                                <span class="dot active" onclick="goToSlide(0)"></span>
+                                <span class="dot" onclick="goToSlide(1)"></span>
+                                <span class="dot" onclick="goToSlide(2)"></span>
+                                <span class="dot" onclick="goToSlide(3)"></span>
+                            </div>
+                            <button class="nav-btn next-btn" aria-label="Slide Kanan">&#10095;</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 2: SUNSCREEN -->
+                <section class="slide" id="slide-2">
+                    <div class="product-info">
+                        <span class="product-tag">SUN PROTECTION</span>
+                        <h2 class="product-title">BRIGHTENING SUNSCREEN</h2>
+                        <p class="product-desc">PERLINDUNGAN MAKSIMAL DARI SINAR UV SEKALIGUS MEMBERIKAN EFEK MENCERAHKAN ALAMI TANPA RASA LENGKET.</p>
+                        <a href="#product-sunscreen-detail" class="btn-buy">JELAJAHI PRODUK</a>
+                    </div>
+                    
+                    <div class="visual-wrapper">
+                        <div class="product-visual">
+                            <video autoplay loop muted playsinline preload="none">
+                                <source src="https://res.cloudinary.com/xi0uonrz/video/upload/Skincare_jar_rotating_in_studio_20260912201438.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="nav-controls">
+                            <button class="nav-btn prev-btn" aria-label="Slide Kiri">&#10094;</button>
+                            <div class="dots-container">
+                                <span class="dot" onclick="goToSlide(0)"></span>
+                                <span class="dot active" onclick="goToSlide(1)"></span>
+                                <span class="dot" onclick="goToSlide(2)"></span>
+                                <span class="dot" onclick="goToSlide(3)"></span>
+                            </div>
+                            <button class="nav-btn next-btn" aria-label="Slide Kanan">&#10095;</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 3: FACIAL WASH -->
+                <section class="slide" id="slide-3">
+                    <div class="product-info">
+                        <span class="product-tag">DAILY CLEANSER</span>
+                        <h2 class="product-title">BRIGHTENING FACIAL WASH</h2>
+                        <p class="product-desc">PEMBERSIH WAJAH DENGAN TEKSTUR LEMBUT SEPERTI SABUN BAYI UNTUK KULIT BERSIH TRANSPARAN.</p>
+                        <a href="#product-wash-detail" class="btn-buy">JELAJAHI PRODUK</a>
+                    </div>
+                    
+                    <div class="visual-wrapper">
+                        <div class="product-visual">
+                            <video autoplay loop muted playsinline preload="none">
+                                <source src="https://res.cloudinary.com/xi0uonrz/video/upload/sabun.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="nav-controls">
+                            <button class="nav-btn prev-btn" aria-label="Slide Kiri">&#10094;</button>
+                            <div class="dots-container">
+                                <span class="dot" onclick="goToSlide(0)"></span>
+                                <span class="dot" onclick="goToSlide(1)"></span>
+                                <span class="dot active" onclick="goToSlide(2)"></span>
+                                <span class="dot" onclick="goToSlide(3)"></span>
+                            </div>
+                            <button class="nav-btn next-btn" aria-label="Slide Kanan">&#10095;</button>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- SLIDE 4: WATERY MOISTURIZER -->
+                <section class="slide" id="slide-4">
+                    <div class="product-info">
+                        <span class="product-tag">ADVANCED HYDRATION</span>
+                        <h2 class="product-title">WHITENING MOISTURIZER WATERY</h2>
+                        <p class="product-desc">TEKSTUR RINGAN BERBASIS AIR UNTUK PERAWATAN INTENSIF MELASMA DAN FLEK HITAM.</p>
+                        <a href="#product-watery-detail" class="btn-buy">JELAJAHI PRODUK</a>
+                    </div>
+                    
+                    <div class="visual-wrapper">
+                        <div class="product-visual">
+                            <video autoplay loop muted playsinline preload="none">
+                                <source src="https://res.cloudinary.com/xi0uonrz/video/upload/ijo_muter.mp4" type="video/mp4">
+                            </video>
+                        </div>
+                        <div class="nav-controls">
+                            <button class="nav-btn prev-btn" aria-label="Slide Kiri">&#10094;</button>
+                            <div class="dots-container">
+                                <span class="dot" onclick="goToSlide(0)"></span>
+                                <span class="dot" onclick="goToSlide(1)"></span>
+                                <span class="dot" onclick="goToSlide(2)"></span>
+                                <span class="dot active" onclick="goToSlide(3)"></span>
+                            </div>
+                            <button class="nav-btn next-btn" aria-label="Slide Kanan">&#10095;</button>
+                        </div>
+                    </div>
+                </section>
+
+            </div>
+        </div>
+
+        <!-- DETAIL PRODUK 1: SKIN BARRIER MOISTURIZER -->
+        <div class="apple-detail-view" id="product-barrier-detail">
+            <div class="apple-subnav">
+                <a href="#product-barrier-detail" class="subnav-brand">
+                    <span>SKIN BARRIER MOISTURIZER</span>
+                </a>
+                <div class="subnav-links">
+                    <a href="#science">Sains & Formulasi</a>
+                    <a href="#ingredients">Bahan Utama</a>
+                    <a href="#texture">Tekstur</a>
+                    <a href="#slider" class="subnav-cta">Kembali ke Beranda</a>
+                </div>
+            </div>
+
+            <section class="hero-split-section">
+                <div class="hero-left-content">
+                    <h3 class="product-subtitle-name">SKIN BARRIER MOISTURIZER</h3>
+                    <h1 class="hero-left-title">PERLINDUNGAN TERBAIK BUAT KULITMU.</h1>
+                    <div class="statement-left-box" id="science">
+                        <p>
+                            <strong>SECARA ILMIAH TERBUKTI:</strong> LEBIH DARI 50% TOTAL <em>HYALURONIC ACID (HA)</em> TUBUH BERADA DI KULIT. KEHILANGAN KOMPONEN INI ADALAH PENYEBAB UTAMA PENUAAN.
+                        </p>
+                        <p>
+                            KANDUNGAN HA KAMI TIDAK HANYA UNTUK ESTETIKA (GLOWING), TAPI <strong>SECARA FUNGSIONAL MEMPERBAIKI JARINGAN KULIT YANG RUSAK</strong>.
+                        </p>
+                        <p class="highlight">
+                            KOMBINASI HA + LACTOBACILLUS + NIACINAMIDE ADALAH FORMULASI SAINTIFIK UNTUK MENJAGA AWET MUDA SEJAK DINI, BUKAN SEKADAR MEMPERBAIKI YANG SUDAH RUSAK.
+                        </p>
+                    </div>
+                </div>
+                <div class="hero-right-visual">
+                    <div class="hero-model-wrap">
+                        <img src="https://i.ibb.co.com/6Lf4qZK/Gemini-Generated-Image-3pmt4d3pmt4d3pmt.jpg" alt="PICOLAB Model Showcase" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </section>
+
+            <section class="apple-section" id="ingredients">
+                <div class="section-header">
+                    <span class="section-tag">HERO INGREDIENTS</span>
+                    <h2 class="section-title">FORMULASI TIGA PILAR SAINTIFIK.</h2>
+                    <p class="section-desc">KOMBINASI KONSENTRASI AKTIF MURNI BERSTANDAR JURNAL ILMIAH UNTUK REGENERASI TOTAL BARRIER KULIT.</p>
+                </div>
+                <div class="ingredients-grid">
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/wNDq7LK8/74.png" alt="Collagen" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">ACTIVE COLLAGEN</h3>
+                        <p class="ingredient-desc">MEMPERBAIKI STRUKTUR MATRIKS INTRASELULER, MENGEMBALIKAN ELASTISITAS KULIT YANG KENDUR, DAN MEMBERIKAN EFEK PLUMPING ALAMI.</p>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/dvRvc9z/75.png" alt="Niacinamide" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">CLINICAL NIACINAMIDE</h3>
+                        <p class="ingredient-desc">MEMPERCEPAT PEMULIHAN LIPID BARRIER, MERATAKAN WARNA KULIT KUSAM, DAN MENSTIMULASI PRODUKSI CERAMIDE ALAMI.</p>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/jkGQ8s9v/73.png" alt="Hyaluronate Acid" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">HYALURONATE ACID MURNI</h3>
+                        <p class="ingredient-desc">MENEMBUS LAPISAN DERMIS TERDALAM UNTUK MENGUNCI CADANGAN AIR SELULER DAN MENCEGAH DEHIDRASI STRUKTURAL KULIT.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BPOM DENGAN KOTAK MELAYANG KIRI & KANAN -->
+            <div class="bpom-section-wrapper">
+                <div class="bpom-qr-card-large">
+                    <div class="floating-badge-1">
+                        <img src="https://i.ibb.co.com/nqzqDhSL/85.png" alt="Badge 85" loading="lazy" decoding="async">
+                    </div>
+                    <div class="floating-badge-2">
+                        <img src="https://i.ibb.co.com/dsW657wj/84.png" alt="Badge 84" loading="lazy" decoding="async">
+                    </div>
+                    <img src="https://i.ibb.co.com/GQbqq8nv/26.png" alt="QR Code BPOM PICOLAB" class="bpom-qr-img-large" loading="lazy" decoding="async">
+                    <div class="bpom-qr-info-large">
+                        <span class="bpom-badge-tag-large">TERVERIFIKASI RESMI</span>
+                        <h4 class="bpom-qr-title-large">SCAN UNTUK KETERANGAN BPOM</h4>
+                        <span class="bpom-qr-sub-large">KEAMANAN & LEGALITAS UJI KLINIS TERDAFTAR RESMI</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="apple-section" id="texture">
+                <div class="texture-container">
+                    <div class="texture-info">
+                        <span class="texture-badge">SENSORY GEL-CREAM</span>
+                        <h2 class="texture-title">MENYERAP CEPAT. MENGUNCI TANPA BEBAN.</h2>
+                        <p class="texture-desc">
+                            DIRANCANG DENGAN VISKOSITAS MIKRO YANG MELELEH SEKETIKA SAAT MENYENTUH SUHU KULIT. MEMBERIKAN SENSASI SEJUK INSTAN TANPA RESIDU LENGKET.
+                        </p>
+                        <p class="texture-desc" style="color: #86868b;">
+                            ✓ NON-COMEDOGENIC &nbsp;•&nbsp; ✓ ZERO WHITECAST &nbsp;•&nbsp; ✓ FORMULA CEPAT RESAP
+                        </p>
+                    </div>
+                    <div class="texture-img-wrap">
+                        <img src="https://i.ibb.co.com/6RpSCRZG/20.png" alt="Tekstur Lembut PICOLAB Moisturizer" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- DETAIL PRODUK 2: BRIGHTENING FACIAL WASH -->
+        <div class="apple-detail-view" id="product-wash-detail" style="margin-top: 80px; border-top: 1px solid rgba(0,0,0,0.08);">
+            <div class="apple-subnav">
+                <a href="#product-wash-detail" class="subnav-brand">
+                    <span>BRIGHTENING FACIAL WASH</span>
+                </a>
+                <div class="subnav-links">
+                    <a href="#wash-science">Formulasi & Target</a>
+                    <a href="#wash-ingredients">Bahan Utama</a>
+                    <a href="#wash-texture">Tekstur</a>
+                    <a href="#slider" class="subnav-cta">Kembali ke Beranda</a>
+                </div>
+            </div>
+
+            <section class="hero-split-section">
+                <div class="hero-left-content">
+                    <h3 class="product-subtitle-name">BRIGHTENING FACIAL WASH</h3>
+                    <h1 class="hero-left-title">GLOW UP STARTS FROM CLEANSING.</h1>
+                    
+                    <div class="statement-left-box" id="wash-science">
+                        <p>
+                            <strong>BERSIH TRANSPARAN SEJAK PEMBERSIHAN PERTAMA:</strong> Dapatkan kulit bersih transparan dengan perpaduan bahan aktif pencerah dan penenang kulit terbaik.
+                        </p>
+                        <p>
+                            <strong>TEKSTUR LEMBUT SEPERTI SABUN BAYI:</strong> Gel lembut yang menghasilkan busa melimpah namun tetap sangat *gentle* dan ramah tanpa membuat kulit terasa tertarik (*No stripping!*).
+                        </p>
+                        <p class="highlight">
+                            <strong>GLYCOLIC ACID (3%):</strong> Memberikan eksfoliasi ringan harian untuk meluruhkan sel kulit mati sangat lembut demi mendapatkan tekstur kulit yang halus merata.
+                        </p>
+                    </div>
+                    <span class="disclaimer-note">*Formulasi aman untuk pemakaian rutin sehari-hari pagi dan malam.</span>
+                </div>
+
+                <div class="hero-right-visual">
+                    <div class="hero-model-wrap">
+                        <img src="https://i.ibb.co.com/VYxcWL73/cassandra-pegang-sabun.jpg" alt="PICOLAB Brightening Facial Wash Model" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </section>
+
+            <section class="apple-section" id="wash-ingredients">
+                <div class="section-header">
+                    <span class="section-tag">HERO INGREDIENTS</span>
+                    <h2 class="section-title">KANDUNGAN UTAMA FACIAL WASH.</h2>
+                    <p class="section-desc">KOMBINASI ALAMI DAN AKTIF UNTUK EKSFOLIASI SEKALIGUS MENENANGKAN KULIT.</p>
+                </div>
+                <div class="ingredients-grid-3">
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/F4Jwpn55/aloe-vera.png" alt="Aloe Vera" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">ALOE VERA</h3>
+                        <p class="ingredient-desc">MEMBERIKAN EFEK SEJUK INSTAN DAN MENJAGA KELEMBAPAN ALAMI LAPISAN KULIT WAJAH.</p>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/xtF9r0pH/glycolic-acid.png" alt="Glycolic Acid" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">GLYCOLIC ACID 3%</h3>
+                        <p class="ingredient-desc">EKSFOLIAN HALUS UNTUK MENGIKIS SEL KULIT MATI DAN MENGHALUSKAN TEKSTUR KULIT.</p>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/kgsKqQj2/witch-hazel.png" alt="Witch Hazel" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">WITCH HAZEL</h3>
+                        <p class="ingredient-desc">MENENANGKAN KEMERAHAN PADA KULIT SERTA MEMBANTU MERINGKAS PORI-PORI.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BPOM FACIAL WASH -->
+            <div class="bpom-section-wrapper">
+                <div class="bpom-qr-card-large">
+                    <div class="floating-badge-1">
+                        <img src="https://i.ibb.co.com/nqzqDhSL/85.png" alt="Badge 85" loading="lazy" decoding="async">
+                    </div>
+                    <div class="floating-badge-2">
+                        <img src="https://i.ibb.co.com/dsW657wj/84.png" alt="Badge 84" loading="lazy" decoding="async">
+                    </div>
+                    <img src="https://i.ibb.co.com/Y4wvB1C2/cr-code-sabun.png" alt="QR Code BPOM Brightening Facial Wash" class="bpom-qr-img-large" loading="lazy" decoding="async">
+                    <div class="bpom-qr-info-large">
+                        <span class="bpom-badge-tag-large">TERVERIFIKASI RESMI</span>
+                        <h4 class="bpom-qr-title-large">SCAN UNTUK KETERANGAN BPOM</h4>
+                        <span class="bpom-qr-sub-large">KEAMANAN & LEGALITAS UJI KLINIS TERDAFTAR RESMI</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="apple-section" id="wash-texture">
+                <div class="texture-container">
+                    <div class="texture-info">
+                        <span class="texture-badge">GEL TEXTURE</span>
+                        <h2 class="texture-title">TEKSTUR LEMBUT SEPERTI SABUN BAYI.</h2>
+                        <p class="texture-desc">
+                            GEL PEMBERSIH DENGAN BUSA MELIMPAH YANG SANGAT RAMAH DI KULIT, MEMBERSIHKAN KOTORAN TANPA MEMBUAT KULIT TERASA TERTARIK (*NO STRIPPING!*).
+                        </p>
+                        <p class="texture-desc" style="color: #86868b;">
+                            ✓ GENTLE FORMULA &nbsp;•&nbsp; ✓ pH SEIMBANG &nbsp;•&nbsp; ✓ COCOK UNTUK KULIT SENSITIF
+                        </p>
+                    </div>
+                    <div class="texture-img-wrap">
+                        <img src="https://i.ibb.co.com/fY2wcPsg/86.png" alt="Tekstur Brightening Facial Wash PICOLAB" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- DETAIL PRODUK 3: WHITENING MOISTURIZER WATERY -->
+        <div class="apple-detail-view" id="product-watery-detail" style="margin-top: 80px; border-top: 1px solid rgba(0,0,0,0.08);">
+            <div class="apple-subnav">
+                <a href="#product-watery-detail" class="subnav-brand">
+                    <span>WHITENING MOISTURIZER WATERY</span>
+                </a>
+                <div class="subnav-links">
+                    <a href="#watery-science">Sains & Formulasi</a>
+                    <a href="#watery-ingredients">Bahan Utama</a>
+                    <a href="#watery-texture">Tekstur</a>
+                    <a href="#slider" class="subnav-cta">Kembali ke Beranda</a>
+                </div>
+            </div>
+
+            <section class="hero-split-section">
+                <div class="hero-left-content">
+                    <h3 class="product-subtitle-name">WHITENING MOISTURIZER WATERY</h3>
+                    <h1 class="hero-left-title">SOLUSI KLINIS UNTUK MELASMA & FLEK HITAM.</h1>
+                    <div class="statement-left-box" id="watery-science">
+                        <p>
+                            <strong>BUKTI KLINIS MELASMA:</strong> Asam traneksamat (TXA) adalah perawatan yang sangat efektif untuk <span class="highlight">melasma</span>. Zat ini bekerja dengan cara menghambat sistem plasminogen-plasmin, sehingga mengurangi melanogenesis (pembentukan pigmen) dan vaskularisasi.
+                        </p>
+                    </div>
+                    <div class="melasma-showcase-card">
+                        <img src="https://i.ibb.co.com/35jrQLp3/melasma.jpg" alt="Ilustrasi Melasma" loading="lazy" decoding="async">
+                    </div>
+                </div>
+                <div class="hero-right-visual">
+                    <div class="hero-model-wrap">
+                        <img src="https://i.ibb.co.com/rRHH4xHx/swipe-ijo.jpg" alt="PICOLAB Model Melasma Showcase" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </section>
+
+            <section class="apple-section" id="watery-ingredients">
+                <div class="section-header">
+                    <span class="section-tag">HERO INGREDIENTS</span>
+                    <h2 class="section-title">FORMULASI PENCERAH TERBAIK.</h2>
+                    <p class="section-desc">KOMBINASI BAHAN AKTIF UTAMA DENGAN KONSENTRASI TINGGI UNTUK MENARGETKAN HIPERPIGMENTASI DARI AKARNYA.</p>
+                </div>
+                <div class="ingredients-grid">
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/35sXRTX6/80.png" alt="Tranexamic Acid" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">TRANEXAMIC ACID (TXA)</h3>
+                        <p class="ingredient-desc">BAHAN AKTIF UTAMA BERGRADE TINGGI YANG BEKERJA MENARGETKAN MELASMA DAN FLEK HITAM SECARA AMAN DAN EFEKTIF TANPA HYDROQUINONE.</p>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/dvRvc9z/75.png" alt="Niacinamide" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">CLINICAL NIACINAMIDE</h3>
+                        <p class="ingredient-desc">MEMBANTU MENGHAMBAT TRANSFER MELANIN KE PERMUKAAN KULIT, MERATAKAN WARNA KULIT YANG BELANG, SERTA MEMPERKUAT LAPISAN PELINDUNG.</p>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/wNDq7LK8/74.png" alt="Collagen" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">ACTIVE COLLAGEN</h3>
+                        <p class="ingredient-desc">MENJAGA KEKENYALAN DAN ELASTISITAS KULIT, MEMBANTU PROSES REGENERASI SEL KULIT BARU AGAR TAMPAK LEBIH SEHAT DAN BERSINAR.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BPOM WATERY -->
+            <div class="bpom-section-wrapper">
+                <div class="bpom-qr-card-large">
+                    <div class="floating-badge-1">
+                        <img src="https://i.ibb.co.com/nqzqDhSL/85.png" alt="Badge 85" loading="lazy" decoding="async">
+                    </div>
+                    <div class="floating-badge-2">
+                        <img src="https://i.ibb.co.com/dsW657wj/84.png" alt="Badge 84" loading="lazy" decoding="async">
+                    </div>
+                    <img src="https://i.ibb.co.com/KzVRRyj6/cr-code-watery.png" alt="QR Code BPOM Whitening Moisturizer Watery" class="bpom-qr-img-large" loading="lazy" decoding="async">
+                    <div class="bpom-qr-info-large">
+                        <span class="bpom-badge-tag-large">TERVERIFIKASI RESMI</span>
+                        <h4 class="bpom-qr-title-large">SCAN UNTUK KETERANGAN BPOM</h4>
+                        <span class="bpom-qr-sub-large">KEAMANAN & LEGALITAS UJI KLINIS TERDAFTAR RESMI</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="apple-section" id="watery-texture">
+                <div class="texture-container">
+                    <div class="texture-info">
+                        <span class="texture-badge">WATERY GEL-CREAM</span>
+                        <h2 class="texture-title">MENYERAP SEKETIKA. HIDRASI TANPA BEBAN.</h2>
+                        <p class="texture-desc">
+                            DIRANCANG DENGAN TEKNOLOGI WATERY BERBASIS AIR YANG MELELEH DAN MERESAP SEPUHNYA KE DALAM KULIT SEGERA SETELAH DIAPLIKASIKAN. BEBAS LENGKET DAN SANGAT RINGAN.
+                        </p>
+                        <p class="texture-desc" style="color: #86868b;">
+                            ✓ NON-COMEDOGENIC &nbsp;•&nbsp; ✓ ZERO WHITECAST &nbsp;•&nbsp; ✓ FORMULA CEPAT RESAP
+                        </p>
+                    </div>
+                    <div class="texture-img-wrap">
+                        <img src="https://i.ibb.co.com/6RpSCRZG/20.png" alt="Tekstur Whitening Moisturizer Watery" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- DETAIL PRODUK 4: BRIGHTENING SUNSCREEN -->
+        <div class="apple-detail-view" id="product-sunscreen-detail" style="margin-top: 80px; border-top: 1px solid rgba(0,0,0,0.08);">
+            <div class="apple-subnav">
+                <a href="#product-sunscreen-detail" class="subnav-brand">
+                    <span>BRIGHTENING SUNSCREEN</span>
+                </a>
+                <div class="subnav-links">
+                    <a href="#sunscreen-science">Formulasi & Keunggulan</a>
+                    <a href="#sunscreen-ingredients">Bahan Utama</a>
+                    <a href="#sunscreen-texture">Tekstur</a>
+                    <a href="#slider" class="subnav-cta">Kembali ke Beranda</a>
+                </div>
+            </div>
+
+            <section class="hero-split-section">
+                <div class="hero-left-content">
+                    <h3 class="product-subtitle-name">BRIGHTENING SUNSCREEN</h3>
+                    <h1 class="hero-left-title">PERLINDUNGAN UV & KULIT CERAH SEPANJANG HARI.</h1>
+                    
+                    <div class="statement-left-box" id="sunscreen-science">
+                        <p>
+                            <strong>SUNSCREEN HARIAN UNTUK KAMU YANG AKTIF:</strong> Diformulasikan khusus sebagai pelindung harian yang menggabungkan perlindungan UV tingkat lanjut dengan bahan aktif pencerah dosis efektif.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="hero-right-visual">
+                    <div class="hero-model-wrap">
+                        <img src="https://i.ibb.co.com/Mx7HwvFq/cassandra-flat-megang-sunblok.jpg" alt="PICOLAB Brightening Sunscreen Model" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </section>
+
+            <section class="apple-section" id="sunscreen-ingredients">
+                <div class="section-header">
+                    <span class="section-tag">HERO INGREDIENTS</span>
+                    <h2 class="section-title">KANDUNGAN AKTIF UTAMA.</h2>
+                    <p class="section-desc">DOSIS EFEKTIF TERSTANDAR UNTUK PERLINDUNGAN DAN PENCERAHAN KULIT MAKSIMAL.</p>
+                </div>
+                <div class="ingredients-grid-2">
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/0pVkLmBG/alpha-arbutin.png" alt="Alpha Arbutin" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">ALPHA ARBUTIN 1%</h3>
+                        <p class="ingredient-desc">EKSTRAK ALAMI DARI BUAH BEARBERRY YANG DIFokuskan KHUSUS UNTUK MENCERAHKAN KULIT KUSAM DAN MERATAKAN WARNA KULIT.</p>
+                    </div>
+                    <div class="ingredient-card">
+                        <div class="ingredient-img-box">
+                            <img src="https://i.ibb.co.com/dvRvc9z/75.png" alt="Niacinamide" loading="lazy" decoding="async">
+                        </div>
+                        <h3 class="ingredient-title">NIACINAMIDE 2%</h3>
+                        <p class="ingredient-desc">MENJAGA KETAHANAN SKIN BARRIER SEKALIGUS MENGONTROL PRODUKSI SEBUM DAN UKURAN PORI-PORI WAJAH.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BPOM SUNSCREEN -->
+            <div class="bpom-section-wrapper">
+                <div class="bpom-qr-card-large">
+                    <div class="floating-badge-1">
+                        <img src="https://i.ibb.co.com/nqzqDhSL/85.png" alt="Badge 85" loading="lazy" decoding="async">
+                    </div>
+                    <div class="floating-badge-2">
+                        <img src="https://i.ibb.co.com/dsW657wj/84.png" alt="Badge 84" loading="lazy" decoding="async">
+                    </div>
+                    <img src="https://i.ibb.co.com/GQbqq8nv/26.png" alt="QR Code BPOM Brightening Sunscreen" class="bpom-qr-img-large" loading="lazy" decoding="async">
+                    <div class="bpom-qr-info-large">
+                        <span class="bpom-badge-tag-large">TERVERIFIKASI RESMI</span>
+                        <h4 class="bpom-qr-title-large">SCAN UNTUK KETERANGAN BPOM</h4>
+                        <span class="bpom-qr-sub-large">KEAMANAN & LEGALITAS UJI KLINIS TERDAFTAR RESMI</span>
+                    </div>
+                </div>
+            </div>
+
+            <section class="apple-section" id="sunscreen-texture">
+                <div class="texture-container">
+                    <div class="texture-info">
+                        <span class="texture-badge">UV PROTECTION TEXTURE</span>
+                        <h2 class="texture-title">RINGAN, NYAMAN, TANPA RASA LENGKET.</h2>
+                        <p class="texture-desc">
+                            FORMULASI SPF 40 DENGAN TEKSTUR HALUS YANG MEMBERIKAN HASIL AKHIR *TRANSLUCENT GLOWING FINISH* UNTUK KULIT SEHAT SEPANJANG HARI.
+                        </p>
+                        <p class="texture-desc" style="color: #86868b;">
+                            ✓ SPF 40 PROTECTION &nbsp;•&nbsp; ✓ NO WHITECAST &nbsp;•&nbsp; ✓ GLOWING FINISH
+                        </p>
+                    </div>
+                    <div class="texture-img-wrap">
+                        <img src="https://i.ibb.co.com/CpcXZjc1/87.png" alt="Tekstur Brightening Sunscreen PICOLAB" loading="lazy" decoding="async">
+                    </div>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <!-- FOOTER SECTION (LATAR BELAKANG PUTIH & BAWAH HITAM) -->
+    <footer class="site-footer" id="contact">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>OFFICIAL OFFICE</h4>
+                <p><strong>Ruko The Savia Blok A2 No 1</strong></p>
+                <p>Desa/Kelurahan Ciater, Kec. Serpong</p>
+                <p>Kota Tangerang Selatan, Provinsi Banten</p>
+            </div>
+            <div class="footer-col">
+                <h4>CONTACT US & SCAN</h4>
+                <div class="footer-qr-box">
+                    <img src="https://i.ibb.co.com/YTV8DRXV/qrcode-397400425-8c44f90c00e59b771e479ebfee622b66.png" alt="QR Code Contact Us" class="footer-qr-img" loading="lazy" decoding="async">
+                    <p style="font-size: 11px !important; margin: 0;">Scan QR code untuk terhubung langsung dengan layanan kontak kami.</p>
+                </div>
+            </div>
+            <div class="footer-col">
+                <h4>SOCIAL MEDIA</h4>
+                <div class="footer-social-links">
+                    <a href="https://www.instagram.com/picolab_jkt?stkn=MTk4bTd2Y3U4NmpiOA==" target="_blank" rel="noopener noreferrer">
+                        <img src="https://i.ibb.co.com/LjHX8Sj/logo-ig.png" alt="logo ig" loading="lazy" decoding="async">
+                    </a>
+                    <a href="http://www.tiktok.com/@picolab_official" target="_blank" rel="noopener noreferrer">
+                        <img src="https://i.ibb.co.com/XfLCXKJx/logo-tiktok.png" alt="logo tiktok" loading="lazy" decoding="async">
+                    </a>
+                    <a href="https://wa.me/628996699010" target="_blank" rel="noopener noreferrer">
+                        <img src="https://i.ibb.co.com/HfgQGHDd/logo-wa.png" alt="logo wa" loading="lazy" decoding="async">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2026 PT PICO CHARMANTE AESTETIK. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPT INTERAKTIF MENU & SLIDER -->
+    <script>
+        const aboutPage = document.getElementById('aboutPage');
+        const journalPage = document.getElementById('journalPage');
+        const resellerPage = document.getElementById('resellerPage');
+        const mainProductsContent = document.getElementById('mainProductsContent');
+
+        function hideAllPages() {
+            aboutPage.style.display = 'none';
+            journalPage.style.display = 'none';
+            resellerPage.style.display = 'none';
+            mainProductsContent.style.display = 'none';
+        }
+
+        function showAboutPage() {
+            hideAllPages();
+            aboutPage.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showJournalPage() {
+            hideAllPages();
+            journalPage.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showResellerPage() {
+            hideAllPages();
+            resellerPage.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function showMainProducts() {
+            hideAllPages();
+            mainProductsContent.style.display = 'block';
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function switchJournal(journalId, btnElement) {
+            document.querySelectorAll('.journal-pane').forEach(pane => {
+                pane.classList.remove('active');
+            });
+            document.querySelectorAll('.journal-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById('pane-' + journalId).classList.add('active');
+            btnElement.classList.add('active');
+        }
+
+        const slider = document.getElementById('slider');
+        const prevBtns = document.querySelectorAll('.prev-btn');
+        const nextBtns = document.querySelectorAll('.next-btn');
+        const totalSlides = 4;
+        let currentIndex = 0;
+
+        function updateDots(index) {
+            document.querySelectorAll('.dots-container').forEach(container => {
+                const dots = container.querySelectorAll('.dot');
+                dots.forEach((dot, idx) => {
+                    dot.classList.toggle('active', idx === index);
+                });
+            });
+        }
+
+        function goToSlide(index) {
+            currentIndex = index;
+            slider.scrollTo({
+                left: window.innerWidth * index,
+                behavior: 'smooth'
+            });
+            updateDots(currentIndex);
+
+            const activeSlide = document.querySelectorAll('.slide')[index];
+            const video = activeSlide.querySelector('video');
+            if (video && video.preload === 'none') {
+                video.preload = 'auto';
+                video.play().catch(() => {});
+            }
+        }
+
+        nextBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentIndex < totalSlides - 1) {
+                    currentIndex++;
+                } else {
+                    currentIndex = 0;
+                }
+                goToSlide(currentIndex);
+            });
+        });
+
+        prevBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                if (currentIndex > 0) {
+                    currentIndex--;
+                } else {
+                    currentIndex = totalSlides - 1;
+                }
+                goToSlide(currentIndex);
+            });
+        });
+
+        slider.addEventListener('scroll', () => {
+            const index = Math.round(slider.scrollLeft / window.innerWidth);
+            if (index !== currentIndex) {
+                currentIndex = index;
+                updateDots(currentIndex);
+            }
+        });
+    </script>
+</body>
+</html>
